@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FansHub - Платформа ексклюзивного контенту</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Кнопка теми -->
+    <button id="theme-toggle" style="width: auto; position: absolute; top: 15px; left: 15px; padding: 8px 15px; font-size: 14px; z-index: 100;">🌙 Темна тема</button>
+
+    <!-- ВЕРХНЯ ЧАСТИНА: ГОРИЗОНТАЛЬНИЙ БЛОК (ЗЛІВА РЕЄСТРАЦІЯ, СПРАВА РЕКЛАМА) -->
+    <div class="top-section">
+        <div class="top-container">
+            
+            <!-- ЛІВА ЧАСТИНА ВЕРХУ: Зона реєстрації -->
+            <div class="auth-box">
+                <div class="brand-logo">FansHub</div>
+                <h3>Зареєструйтесь, щоб підтримати авторів</h3>
+                <form id="auth-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Електронна пошта (Email)" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Пароль" required>
+                    </div>
+                    <button type="submit" class="primary-btn">УВІЙТИ / ЗАРЕЄСТРУВАТИСЬ</button>
+                </form>
+
+                <div class="social-login">
+                    <button class="social-btn google-btn" onclick="alert('Вхід через Google')">Google</button>
+                    <button class="social-btn twitter-btn" onclick="alert('Вхід через X')">X (Twitter)</button>
+                </div>
+            </div>
+
+            <!-- ПРАВА ЧАСТИНА ВЕРХУ: Місце для реклами / Промо-банер -->
+            <div class="banner-box">
+                <div class="ad-badge">РЕКЛАМА / ТОП МОДЕЛІ</div>
+                <h1>Отримай доступ до закритих приватів</h1>
+                <p class="banner-text">Прямо зараз понад 500 топових контент-мейкерів перебувають у мережі та чекають на твої повідомлення. Оформи підписку та розблокуй VIP-стрічку в один клік.</p>
+                <div class="ad-banner-mock">
+                    <span>🔥 Знижка 70% на першу VIP-підписку сьогодні! 🔥</span>
+                </div>
+                <p style="margin-top: 15px;"><a href="chat.html" style="color: white; font-weight: bold; font-size: 14px; text-decoration: underline;">👉 ТЕСТУВАТИ ПРИВАТНИЙ VIP-ЧАТ</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- НИЖНЯ ЧАСТИНА: КАТАЛОГ АВТОРІВ ТА СТРІЧКА ПОСТІВ -->
+    <div class="bottom-section">
+        <h2>Останні рекомендовані повідомлення</h2>
+        
+        <div class="feed-container">
+            
+            <!-- Пост 1 (Катерина - Фото) -->
+            <div class="post-card">
+                <div class="profile-banner-container">
+                    <img src="images/3.jpg" alt="Банер Катерини" class="profile-banner-img">
+                </div>
+
+                <div class="post-content-wrapper">
+                    <div class="post-header">
+                        <div class="post-header-left">
+                            <img src="images/1.jpg" alt="Аватар" class="post-mini-avatar">
+                            <div class="post-user-info">
+                                <h4>Катерина <span class="verified-badge">✓</span></h4>
+                                <span class="username">@katya_premium</span>
+                            </div>
+                        </div>
+                        <span class="post-time">28 хвилин тому</span>
+                    </div>
+                    <p class="post-caption"><a href="#">@katya_premium</a> ексклюзивні кадри з нової дикої фотосесії серед тропічних водоспадів та джунглів! Зареєструйтесь вище, щоб отримати повний доступ. 🌿🔥 <a href="#">://onlyfans.com</a></p>
+                </div>
+                
+                <div class="media-lock-container">
+                    <img src="images/3.jpg" alt="Заблоковано" class="locked-media">
+                    <div class="lock-overlay">
+                        <span class="lock-icon">🔒</span>
+                        <span class="lock-text">ВХІД / РЕЄСТРАЦІЯ ДЛЯ ПЕРЕГЛЯДУ ФОТО</span>
+                    </div>
+                </div>
+
+                <div class="post-actions-bar">
+                    <div class="action-item like-item" onclick="alert('Лайк поставлено!')">
+                        <span class="action-icon">❤️</span>
+                        <span class="action-count">1.4K</span>
+                    </div>
+                    <div class="action-item comment-item" onclick="alert('Відкриття коментарів')">
+                        <span class="action-icon">💬</span>
+                        <span class="action-count">245</span>
+                    </div>
+                    <div class="action-item star-item" onclick="alert('Додано в обране')">
+                        <span class="action-icon">⭐</span>
+                        <span class="action-text">VIP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пост 2 (Марія - Відео) -->
+            <div class="post-card">
+                <div class="profile-banner-container">
+                    <img src="images/1.jpg" alt="Банер Марії" class="profile-banner-img">
+                </div>
+
+                <div class="post-content-wrapper">
+                    <div class="post-header">
+                        <div class="post-header-left">
+                            <img src="images/2.jpg" alt="Аватар" class="post-mini-avatar">
+                            <div class="post-user-info">
+                                <h4>Марія <span class="verified-badge">✓</span></h4>
+                                <span class="username">@maria_love</span>
+                            </div>
+                        </div>
+                        <span class="post-time">2 години тому</span>
+                    </div>
+                    <p class="post-caption">Мій новий тизер вже у стрічці. Для всіх нових підписників діє знижка 50% на перший місяць! Чекаю на вас у приваті. 💋 <a href="#">://onlyfans.com</a></p>
+                </div>
+                
+                <div class="video-container">
+                    <video class="open-video" controls poster="images/2.jpg">
+                        <source src="https://w3schools.com" type="video/mp4">
+                        Ваш браузер не підтримує відео.
+                    </video>
+                </div>
+
+                <div class="post-actions-bar">
+                    <div class="action-item like-item" onclick="alert('Лайк поставлено!')">
+                        <span class="action-icon">❤️</span>
+                        <span class="action-count">854</span>
+                    </div>
+                    <div class="action-item comment-item" onclick="alert('Відкриття коментарів')">
+                        <span class="action-icon">💬</span>
+                        <span class="action-count">92</span>
+                    </div>
+                    <div class="action-item star-item" onclick="alert('Додано в обране')">
+                        <span class="action-icon">⭐</span>
+                        <span class="action-text">VIP</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- КНОПКА ПОКАЗАТИ ЩЕ -->
+    <div class="load-more-container">
+        <button class="load-more-btn" onclick="alert('Підвантаження нових постів...')">ПОКАЗАТИ ЩЕ</button>
+    </div>
+
+    <!-- ПІДВАЛ (ФУТЕР) -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <p class="copyright">©2026 FansHub</p>
+                <p><a href="#">Контакти</a></p>
+                <div class="footer-socials">
+                    <a href="#">𝕏</a>
+                    <a href="#">📸</a>
+                </div>
+                <div class="language-selector">
+                    <select onchange="alert('Зміна мови')">
+                        <option>Ukrainian 🇺🇦</option>
+                        <option>English 🇺🇸</option>
+                    </select>
+                </div>
+            </div>
+            <div class="footer-column">
+                <a href="#">Help</a>
+                <a href="#">Store</a>
+                <a href="#">Cookie Notice</a>
+            </div>
+            <div class="footer-column">
+                <a href="#">About</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">DMCA</a>
+            </div>
+            <div class="footer-column">
+                <a href="#">Blog</a>
+                <a href="#">Privacy</a>
+                <a href="#">Acceptable Use Policy</a>
+            </div>
+            <div class="footer-column">
+                <a href="#">Branding</a>
+                <a href="#">Complaints Policy</a>
+                <a href="#">Contract</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
