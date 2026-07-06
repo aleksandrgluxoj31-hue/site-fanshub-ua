@@ -1,15 +1,41 @@
+// ==========================================================================
+// НАЛАШТУВАННЯ БАЗИ ДАНИХ (BACKEND)
+// ==========================================================================
+const SUPABASE_URL = "https://supabase.co";
+const SUPABASE_KEY = "sb_publishable_LiTVyW2_9faH904y5IcKYA_mfErp88d";
+
+// Ініціалізуємо підключення до сервера Supabase
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // ==========================================
-    // 1. АВТОРИЗАЦІЯ (ОБРОБКА ФОРМИ)
+    // 1. РЕАЛЬНА РЕЄСТРАЦІЯ КОРИСТУВАЧІВ (SUPABASE AUTH)
     // ==========================================
     const authForm = document.getElementById('auth-form');
 
     if (authForm) {
-        authForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+        authForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Зупиняємо перевантаження сторінки
+            
+            // Забираємо пошту та пароль, які ввів справжній користувач
             const emailInput = document.querySelector('input[type="email"]').value;
-            alert('Спроба входу для: ' + emailInput + '\nБаза даних у процесі розробки.');
+            const passwordInput = document.querySelector('input[type="password"]').value;
+
+            // Відправляємо запит на реєстрацію в хмару Supabase
+            const { data, error } = await supabaseClient.auth.signUp({
+                email: emailInput,
+                password: passwordInput,
+            });
+
+            if (error) {
+                // Якщо пароль занадто короткий (менше 6 символів) або пошта зламана
+                alert('Помилка реєстрації: ' + error.message);
+            } else {
+                // Якщо все добре, Supabase автоматично надішле клієнту лист
+                alert('Успішно! ' + emailInput + ', перевірте вашу пошту. Ми надіслали вам лист для підтвердження реєстрації на FansHub.');
+                authForm.reset();
+            }
         });
     }
 
@@ -20,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (themeToggleBtn) {
         function turnOnDark() {
-            // Фон усього сайту та нижньої секції
             document.body.style.backgroundColor = "#101215";
             
             const bottomSection = document.querySelector('.bottom-section');
@@ -29,11 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const loadMoreContainer = document.querySelector('.load-more-container');
             if (loadMoreContainer) loadMoreContainer.style.backgroundColor = "#101215";
 
-            // Верхня секція (банер + реєстрація)
             const topSection = document.querySelector('.top-section');
             if (topSection) topSection.style.background = "linear-gradient(135deg, #1c1f24 0%, #101215 100%)";
 
-            // Перефарбовуємо картку реєстрації, картки постів та підвал
             const cards = document.querySelectorAll('.auth-box, .post-card, .site-footer');
             cards.forEach(card => card.style.backgroundColor = "#16181c");
             cards.forEach(card => card.style.borderColor = "#2f3336");
@@ -42,15 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
             actionsBars.forEach(bar => bar.style.backgroundColor = "#16181c");
             actionsBars.forEach(bar => bar.style.borderTopColor = "#2f3336");
 
-            // Головні заголовки стають білими
             const headers = document.querySelectorAll('h1, h2, h3, h4');
             headers.forEach(h => h.style.color = "#ffffff");
 
-            // Тексти описів, юзернейми та час
             const textGray = document.querySelectorAll('.banner-text, .username, .post-time, .post-caption, .copyright, .footer-column a, .footer-column p');
             textGray.forEach(t => t.style.color = "#8c9ba5");
 
-            // Поля введення
             const inputs = document.querySelectorAll('#auth-form input, .chat-input-bar input');
             inputs.forEach(input => {
                 input.style.backgroundColor = "#1c1f24";
@@ -58,18 +78,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 input.style.color = "#ffffff";
             });
 
-            // Написи над полями (label)
             const labels = document.querySelectorAll('#auth-form label');
             labels.forEach(l => l.style.color = "#b388ff");
 
-            // Соціальні кнопки
             const socialBtns = document.querySelectorAll('.social-btn');
             socialBtns.forEach(btn => {
                 btn.style.backgroundColor = "transparent";
                 btn.style.borderColor = "#2f3336";
             });
 
-            // Елементи приватного чату
             const chatWindow = document.querySelector('.chat-window');
             if (chatWindow) chatWindow.style.borderColor = "#2f3336";
 
@@ -105,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function turnOnLight() {
-            // Повертаємо все до стандартних світлих CSS стилів
             document.body.style.backgroundColor = "";
             
             const bottomSection = document.querySelector('.bottom-section');
@@ -185,12 +201,10 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('dark-mode', 'disabled');
         }
 
-        // Перевіряємо збережений вибір користувача
         if (localStorage.getItem('dark-mode') === 'enabled') {
             turnOnDark();
         }
 
-        // Клік по кнопці
         themeToggleBtn.addEventListener('click', function() {
             if (localStorage.getItem('dark-mode') !== 'enabled') {
                 turnOnDark();
