@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель автора - FansHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Кнопка теми -->
+    <button id="theme-toggle" style="width: auto; position: absolute; top: 15px; left: 15px; padding: 8px 15px; font-size: 14px; z-index: 100;">🌙 Темна тема</button>
+
+    <div class="dashboard-wrapper" style="max-width: 1000px; margin: 50px auto; padding: 20px;">
+        <a href="index.html" class="nav-link" style="margin-bottom: 20px; display: inline-block;">← На головну сторінку</a>
+
+        <h1 style="margin-bottom: 30px;">Вітаємо в кабінеті автора, Катерино! 👋</h1>
+
+        <!-- БЛОК СТАТИСТИКИ ЗАРОБІТКУ -->
+        <div class="stats-grid" style="display: flex; gap: 20px; margin-bottom: 40px;">
+            <div class="stat-card" style="flex: 1; background: #ffffff; border: 1px solid #d8e1e6; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.01);">
+                <p style="margin: 0; color: #8c9ba5; font-size: 14px; font-weight: 600;">БАЛАНС ДО ВИВЕДЕННЯ</p>
+                <h2 style="margin: 10px 0 0 0; font-size: 32px; color: #4caf50;">$1,450.00</h2>
+            </div>
+            <div class="stat-card" style="flex: 1; background: #ffffff; border: 1px solid #d8e1e6; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.01);">
+                <p style="margin: 0; color: #8c9ba5; font-size: 14px; font-weight: 600;">АКТИВНІ ПІДПИСНИКИ</p>
+                <h2 style="margin: 10px 0 0 0; font-size: 32px; color: #00aff0;">482 клієнти</h2>
+            </div>
+            <div class="stat-card" style="flex: 1; background: #ffffff; border: 1px solid #d8e1e6; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.01);">
+                <p style="margin: 0; color: #8c9ba5; font-size: 14px; font-weight: 600;">ЗАРОБІТОК З PPV ЧАТУ</p>
+                <h2 style="margin: 10px 0 0 0; font-size: 32px; color: #e91e63;">$890.50</h2>
+            </div>
+        </div>
+
+        <div class="dashboard-main-content" style="display: flex; gap: 30px;">
+            
+            <!-- ЛІВА ЧАСТИНА: ЗАВАНТАЖЕННЯ КОНТЕНТУ -->
+            <div class="upload-section" style="flex: 1; background: white; border: 1px solid #d8e1e6; padding: 30px; border-radius: 12px;">
+                <h3 style="margin-top: 0; margin-bottom: 20px;">🔥 Опублікувати новий ексклюзив</h3>
+                <form onsubmit="event.preventDefault(); alert('Контент успішно відправлено на модерацію та шифрування!')">
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #555;">Опис поста або повідомлення:</label>
+                        <textarea placeholder="Напишіть щось гаряче для своїх фанатів..." style="width: 100%; height: 100px; padding: 12px; border: 1px solid #d8e1e6; border-radius: 6px; box-sizing: border-box; font-family: inherit; font-size: 14px;"></textarea>
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #555;">Оберіть фото або відео з телефону/ПК:</label>
+                        <input type="file" accept="image/*,video/*" style="width: 100%; padding: 10px; border: 1px solid #d8e1e6; border-radius: 6px; background: #f8f9fa; box-sizing: border-box;">
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #555;">Тип доступу до медіа:</label>
+                        <select style="width: 100%; padding: 12px; border: 1px solid #d8e1e6; border-radius: 6px; background: white; font-size: 14px;">
+                            <option>Безкоштовно (Для всіх підписників стрічки)</option>
+                            <option>Платне повідомлення в чат (PPV) — $3.50</option>
+                            <option>Платне повідомлення в чат (PPV) — $5.00</option>
+                            <option>Тільки для VIP-рівня підписки</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="primary-btn" style="margin-bottom: 0;">ОПУБЛІКУВАТИ КОНТЕНТ 🚀</button>
+                </form>
+            </div>
+
+            <!-- ПРАВА ЧАСТИНА: ВИВЕДЕННЯ ЗАРОБЛЕНИХ КОШТІВ -->
+            <div class="payout-section" style="width: 350px; background: white; border: 1px solid #d8e1e6; padding: 30px; border-radius: 12px; height: fit-content;">
+                <h3 style="margin-top: 0; margin-bottom: 20px;">💸 Виведення заробітку (Payout)</h3>
+                <form onsubmit="event.preventDefault(); alert('Заявка на виведення коштів успішно створена. Обробка займає до 24 годин.')">
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #555;">Платіжний метод:</label>
+                        <select style="width: 100%; padding: 12px; border: 1px solid #d8e1e6; border-radius: 6px; background: white; font-size: 14px;">
+                            <option>Криптовалюта USDT (TRC-20) — Рекомендовано</option>
+                            <option>Міжнародний банківський переказ (Paxum)</option>
+                            <option>Виплата на карту Visa/Mastercard (High-Risk)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #555;">Ваш криптогаманець або номер рахунку:</label>
+                        <input type="text" placeholder="Приклад: TX7xx...xxxx...89" required style="width: 100%; padding: 12px; border: 1px solid #d8e1e6; border-radius: 6px; box-sizing: border-box; font-size: 14px;">
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; color: #555;">Сума для виведення ($):</label>
+                        <input type="number" min="50" max="1450" placeholder="Мінімум $50" required style="width: 100%; padding: 12px; border: 1px solid #d8e1e6; border-radius: 6px; box-sizing: border-box; font-size: 14px;">
+                    </div>
+
+                    <button type="submit" class="primary-btn" style="background-color: #4caf50; margin-bottom: 0;">ЗАПРОСИТИ ВИПЛАТУ 💰</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
