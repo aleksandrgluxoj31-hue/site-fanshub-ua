@@ -101,6 +101,72 @@
         .upload-section textarea, .upload-section input, .upload-section select,
         .payout-section input, .payout-section select { background-color: #ffffff; color: #242529; }
     </style>
+    <!-- Автономний скрипт для миттєвого фарбування кабінету навіть без хостингу -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('theme-toggle');
+            
+            function applyDark() {
+                document.body.classList.add('dark-mode');
+                document.body.style.backgroundColor = "#101215";
+                const cards = document.querySelectorAll('.stat-card, .upload-section, .payout-section');
+                cards.forEach(c => {
+                    c.style.backgroundColor = "#16181c";
+                    c.style.borderColor = "#2f3336";
+                });
+                const inputs = document.querySelectorAll('input, textarea, select');
+                inputs.forEach(i => {
+                    i.style.backgroundColor = "#101215";
+                    i.style.borderColor = "#2f3336";
+                    i.style.color = "#ffffff";
+                });
+                const textLabels = document.querySelectorAll('.stat-label, label');
+                textLabels.forEach(l => l.style.color = "#8c9ba5");
+                const headers = document.querySelectorAll('h1, h3');
+                headers.forEach(h => h.style.color = "#ffffff");
+                if (btn) btn.textContent = '☀️ Світла тема';
+                localStorage.setItem('dark-mode', 'enabled');
+            }
+
+            function applyLight() {
+                document.body.classList.remove('dark-mode');
+                document.body.style.backgroundColor = "";
+                const cards = document.querySelectorAll('.stat-card, .upload-section, .payout-section');
+                cards.forEach(c => {
+                    c.style.backgroundColor = "";
+                    c.style.borderColor = "";
+                });
+                const inputs = document.querySelectorAll('input, textarea, select');
+                inputs.forEach(i => {
+                    i.style.backgroundColor = "";
+                    i.style.borderColor = "";
+                    i.style.color = "";
+                });
+                const textLabels = document.querySelectorAll('.stat-label, label');
+                textLabels.forEach(l => l.style.color = "");
+                const headers = document.querySelectorAll('h1, h3');
+                headers.forEach(h => h.style.color = "");
+                if (btn) btn.textContent = '🌙 Темна тема';
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+
+            // Перевіряємо пам'ять
+            if (localStorage.getItem('dark-mode') === 'enabled') {
+                applyDark();
+            }
+
+            // Клік по кнопці безпосередньо в кабінеті
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    if (!document.body.classList.contains('dark-mode')) {
+                        applyDark();
+                    } else {
+                        applyLight();
+                    }
+                });
+            }
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
