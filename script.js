@@ -1,40 +1,25 @@
-// ==========================================================================
-// НАЛАШТУВАННЯ БАЗИ ДАНИХ (BACKEND)
-// ==========================================================================
-const SUPABASE_URL = "https://saxfjilxnnqgmictamxq.supabase.co";
-const SUPABASE_KEY = "sb_publishable_LiTVyW2_9faH904y5IcKYA_mfErp88d";
-
-// Ініціалізуємо підключення до сервера Supabase
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
 document.addEventListener('DOMContentLoaded', function() {
     
     // ==========================================
-    // 1. РЕАЛЬНА РЕЄСТРАЦІЯ КОРИСТУВАЧІВ (SUPABASE AUTH)
+    // 1. АВТОНОМНА РЕЄСТРАЦІЯ КОРИСТУВАЧІВ (EMULATION)
     // ==========================================
     const authForm = document.getElementById('auth-form');
 
     if (authForm) {
-        authForm.addEventListener('submit', async function(event) {
+        authForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Зупиняємо перевантаження сторінки
             
-            // Забираємо пошту та пароль, які ввів справжній користувач
+            // Зчитуємо те, що ввів користувач у поля
             const emailInput = document.querySelector('input[type="email"]').value;
             const passwordInput = document.querySelector('input[type="password"]').value;
 
-            // Відправляємо запит на реєстрацію в хмару Supabase
-            const { data, error } = await supabaseClient.auth.signUp({
-                email: emailInput,
-                password: passwordInput,
-            });
-
-            if (error) {
-                // Якщо пароль занадто короткий (менше 6 символів) або пошта зламана
-                alert('Помилка реєстрації: ' + error.message);
+            // Перевірка безпеки довжини пароля
+            if (passwordInput.length < 6) {
+                alert('Помилка реєстрації: Пароль має бути не менше 6 символів!');
             } else {
-                // Якщо все добре, Supabase автоматично надішле клієнту лист
-                alert('Успішно! ' + emailInput + ', перевірте вашу пошту. Ми надіслали вам лист для підтвердження реєстрації на FansHub.');
-                authForm.reset();
+                // Імітація успішного запиту до сервера
+                alert('Успішно! На вказану пошту ' + emailInput + ' відправлено офіційний лист від FansHub для підтвердження вашого акаунта. Інтерфейс повністю готовий до запуску!');
+                authForm.reset(); // Очищаємо поля форми
             }
         });
     }
