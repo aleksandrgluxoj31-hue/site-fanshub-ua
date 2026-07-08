@@ -1,7 +1,7 @@
 // ==========================================================================
 // НАЛАШТУВАННЯ БАЗИ ДАНИХ (BACKEND)
 // ==========================================================================
-const SUPABASE_URL = "https://supabase.co";
+const SUPABASE_URL = "https://saxfjilxnnqgmictamxq.supabase.co";
 const SUPABASE_KEY = "sb_publishable_LiTVyW2_9faH904y5IcKYA_mfErp88d";
 
 // Ініціалізуємо підключення до сервера Supabase
