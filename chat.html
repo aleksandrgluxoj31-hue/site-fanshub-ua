@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приватний VIP Чат - FansHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Кнопка теми -->
+    <button id="theme-toggle" style="width: auto; position: absolute; top: 15px; left: 15px; padding: 8px 15px; font-size: 14px; z-index: 100;">🌙  Темна тема</button>
+
+    <div class="chat-main-wrapper">
+        <a href="index.html" class="nav-link" style="margin-bottom: 20px; display: inline-block; color: #00aff0; text-decoration: none; font-weight: 500;">← На головну сторінку</a>
+
+        <!-- ВІКНО ЧАТУ -->
+        <div class="chat-window">
+            
+            <!-- Шапка чату -->
+            <div class="chat-header-top">
+                <img src="images/1.jpg" alt="Катерина" class="chat-avatar">
+                <div class="chat-user-status">
+                    <h4 class="chat-title">Катерина VIP <span class="verified-badge">✓</span></h4>
+                    <span class="online-indicator">● В мережі</span>
+                </div>
+            </div>
+
+            <!-- Область повідомлень -->
+            <div class="chat-messages-area">
+                
+                <!-- Повідомлення від моделі (Текст) -->
+                <div class="msg-row model-msg">
+                    <img src="images/1.jpg" alt="Катя" class="msg-avatar">
+                    <div class="msg-bubble">Привіт, солодкий! Рада бачити тебе у моєму приватному чаті. Спеціально для тебе я підготувала дещо особливе... Тисни кнопку нижче, щоб розблокувати ексклюзивні кадри з нашої останньої поїздки! 🤫💋</div>
+                </div>
+
+                <!-- ПЛАТНЕ ПОВІДОМЛЕННЯ (PPV LOCK) -->
+                <div class="msg-row model-msg">
+                    <img src="images/1.jpg" alt="Катя" class="msg-avatar">
+                    <div class="msg-bubble ppv-bubble">
+                        <div class="ppv-lock-media">
+                            <img src="images/3.jpg" alt="Заблоковано контент" class="ppv-blur-img">
+                            <div class="ppv-overlay">
+                                <span class="ppv-icon">🔒</span>
+                                <p class="ppv-price">ЦІНА ДОСТУПУ: $5.00</p>
+                                <button class="ppv-unlock-btn" onclick="alert('Інтеграція: Перенаправлення на оплату $5.00')">РОЗБЛОКУВАТИ КОНТЕНТ 🔓</button>
+                            </div>
+                        </div>
+                        <p class="ppv-caption">Повна версія гарячого відео з водоспадів (4К, 12 хв) 🔥🔥🔥</p>
+                    </div>
+                </div>
+
+                <!-- Повідомлення від користувача (Клієнта) -->
+                <div class="msg-row user-msg">
+                    <div class="msg-bubble">Привіт! Ого, виглядає дуже інтригуюче... Зараз розблокую! 😍</div>
+                </div>
+
+            </div>
+
+            <!-- Панель введення тексту -->
+            <div class="chat-input-bar">
+                <input type="text" placeholder="Напишіть приватне повідомлення Катерині...">
+                <button class="send-msg-btn" onclick="alert('Для відправки повідомлень необхідно поповнити баланс коистувача!')">➔</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Завантажуємо базові світлі кольори для чату -->
+    <style>
+        body { background-color: #f4f6f8; }
+        .chat-window { background-color: #ffffff; border: 1px solid #d8e1e6; }
+        .chat-header-top { border-bottom: 1px solid #d8e1e6; background-color: #ffffff; }
+        .chat-title { color: #242529; }
+        .chat-messages-area { background-color: #f8f9fa; }
+        .msg-bubble:not(.user-msg .msg-bubble) { background-color: #ffffff; color: #242529; }
+        .ppv-caption { color: #555555; }
+        .chat-input-bar { background-color: #ffffff; border-top: 1px solid #d8e1e6; }
+    </style>
+
+    <!-- Автономний скрипт для миттєвого фарбування чату -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('theme-toggle');
+            
+            function applyDark() {
+                document.body.classList.add('dark-mode');
+                document.body.style.backgroundColor = "#101215";
+                
+                const chatWindow = document.querySelector('.chat-window');
+                if (chatWindow) chatWindow.style.borderColor = "#2f3336";
+                
+                const chatHeader = document.querySelector('.chat-header-top');
+                if (chatHeader) {
+                    chatHeader.style.backgroundColor = "#16181c";
+                    chatHeader.style.borderBottomColor = "#2f3336";
+                }
+                
+                const chatTitle = document.querySelector('.chat-title');
+                if (chatTitle) chatTitle.style.color = "#ffffff";
+                
+                const chatArea = document.querySelector('.chat-messages-area');
+                if (chatArea) chatArea.style.backgroundColor = "#101215";
+                
+                const modelBubbles = document.querySelectorAll('.msg-bubble:not(.user-msg .msg-bubble)');
+                modelBubbles.forEach(b => b.style.backgroundColor = "#16181c");
+                modelBubbles.forEach(b => b.style.color = "#ffffff");
+                
+                const ppvCaptions = document.querySelectorAll('.ppv-caption');
+                ppvCaptions.forEach(c => c.style.color = "#8c9ba5");
+                
+                const chatInputBar = document.querySelector('.chat-input-bar');
+                if (chatInputBar) {
+                    chatInputBar.style.backgroundColor = "#16181c";
+                    chatInputBar.style.borderTopColor = "#2f3336";
+                }
+                
+                const inputField = document.querySelector('.chat-input-bar input');
+                if (inputField) {
+                    inputField.style.backgroundColor = "#101215";
+                    inputField.style.borderColor = "#2f3336";
+                    inputField.style.color = "#ffffff";
+                }
+
+                if (btn) btn.textContent = '☀️ Світла тема';
+                localStorage.setItem('dark-mode', 'enabled');
+            }
+
+            function applyLight() {
+                document.body.classList.remove('dark-mode');
+                document.body.style.backgroundColor = "";
+                
+                const chatWindow = document.querySelector('.chat-window');
+                if (chatWindow) chatWindow.style.borderColor = "";
+                
+                const chatHeader = document.querySelector('.chat-header-top');
+                if (chatHeader) {
+                    chatHeader.style.backgroundColor = "";
+                    chatHeader.style.borderBottomColor = "";
+                }
+                
+                const chatTitle = document.querySelector('.chat-title');
+                if (chatTitle) chatTitle.style.color = "";
+                
+                const chatArea = document.querySelector('.chat-messages-area');
+                if (chatArea) chatArea.style.backgroundColor = "";
+                
+                const modelBubbles = document.querySelectorAll('.msg-bubble:not(.user-msg .msg-bubble)');
+                modelBubbles.forEach(b => b.style.backgroundColor = "");
+                modelBubbles.forEach(b => b.style.color = "");
+                
+                const ppvCaptions = document.querySelectorAll('.ppv-caption');
+                ppvCaptions.forEach(c => c.style.color = "");
+                
+                const chatInputBar = document.querySelector('.chat-input-bar');
+                if (chatInputBar) {
+                    chatInputBar.style.backgroundColor = "";
+                    chatInputBar.style.borderTopColor = "";
+                }
+                
+                const inputField = document.querySelector('.chat-input-bar input');
+                if (inputField) {
+                    inputField.style.backgroundColor = "";
+                    inputField.style.borderColor = "";
+                    inputField.style.color = "";
+                }
+
+                if (btn) btn.textContent = '🌙 Темна тема';
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+
+            if (localStorage.getItem('dark-mode') === 'enabled') {
+                applyDark();
+            }
+
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    if (!document.body.classList.contains('dark-mode')) {
+                        applyDark();
+                    } else {
+                        applyLight();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
