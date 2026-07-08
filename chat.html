@@ -9,7 +9,7 @@
 <body>
 
     <!-- Кнопка теми -->
-    <button id="theme-toggle" style="width: auto; position: absolute; top: 15px; left: 15px; padding: 8px 15px; font-size: 14px; z-index: 100;">🌙  Темна тема</button>
+    <button id="theme-toggle" style="width: auto; position: absolute; top: 15px; left: 15px; padding: 8px 15px; font-size: 14px; z-index: 100;">🌙 Темна тема</button>
 
     <div class="chat-main-wrapper">
         <a href="index.html" class="nav-link" style="margin-bottom: 20px; display: inline-block; color: #00aff0; text-decoration: none; font-weight: 500;">← На головну сторінку</a>
@@ -21,8 +21,8 @@
             <div class="chat-header-top">
                 <img src="images/1.jpg" alt="Катерина" class="chat-avatar">
                 <div class="chat-user-status">
-                    <h4 class="chat-title">Катерина VIP <span class="verified-badge">✓</span></h4>
-                    <span class="online-indicator">● В мережі</span>
+                    <h4 class="chat-title">Катерина <span class="verified-badge">✓</span></h4>
+                    <span class="online-indicator">● Зараз у мережі</span>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                 <!-- Повідомлення від моделі (Текст) -->
                 <div class="msg-row model-msg">
                     <img src="images/1.jpg" alt="Катя" class="msg-avatar">
-                    <div class="msg-bubble">Привіт, солодкий! Рада бачити тебе у моєму приватному чаті. Спеціально для тебе я підготувала дещо особливе... Тисни кнопку нижче, щоб розблокувати ексклюзивні кадри з нашої останньої поїздки! 🤫💋</div>
+                    <div class="msg-bubble text-content">Привіт, солодкий! 🌟 Рада бачити тебе у своєму приватному чаті. Я якраз відпочиваю після зйомок. Хочеш подивитися, що я записала спеціально для тебе?</div>
                 </div>
 
                 <!-- ПЛАТНЕ ПОВІДОМЛЕННЯ (PPV LOCK) -->
@@ -43,25 +43,25 @@
                             <img src="images/3.jpg" alt="Заблоковано контент" class="ppv-blur-img">
                             <div class="ppv-overlay">
                                 <span class="ppv-icon">🔒</span>
-                                <p class="ppv-price">ЦІНА ДОСТУПУ: $5.00</p>
-                                <button class="ppv-unlock-btn" onclick="alert('Інтеграція: Перенаправлення на оплату $5.00')">РОЗБЛОКУВАТИ КОНТЕНТ 🔓</button>
+                                <p class="ppv-price">Ціна: $3.50</p>
+                                <button class="ppv-unlock-btn" onclick="alert('Інтеграція: Перенаправлення на оплату $3.50')">РОЗБЛОКУВАТИ ЗА $3.50</button>
                             </div>
                         </div>
-                        <p class="ppv-caption">Повна версія гарячого відео з водоспадів (4К, 12 хв) 🔥🔥🔥</p>
+                        <p class="ppv-caption text-content">Мій ексклюзивний утренній халат... Тільки для твоїх очей 🫣💋</p>
                     </div>
                 </div>
 
                 <!-- Повідомлення від користувача (Клієнта) -->
                 <div class="msg-row user-msg">
-                    <div class="msg-bubble">Привіт! Ого, виглядає дуже інтригуюче... Зараз розблокую! 😍</div>
+                    <div class="msg-bubble">Привіт! Вау, звісно хочу подивитися! Оплачую прямо зараз.</div>
                 </div>
 
             </div>
 
             <!-- Панель введення тексту -->
             <div class="chat-input-bar">
-                <input type="text" placeholder="Напишіть приватне повідомлення Катерині...">
-                <button class="send-msg-btn" onclick="alert('Для відправки повідомлень необхідно поповнити баланс коистувача!')">➔</button>
+                <input type="text" placeholder="Напишіть повідомлення для Катерини...">
+                <button class="send-msg-btn" onclick="alert('Для відправки повідомлень необхідно поповнити баланс користувача!')">➔</button>
             </div>
 
         </div>
@@ -77,9 +77,11 @@
         .msg-bubble:not(.user-msg .msg-bubble) { background-color: #ffffff; color: #242529; }
         .ppv-caption { color: #555555; }
         .chat-input-bar { background-color: #ffffff; border-top: 1px solid #d8e1e6; }
+        .chat-input-bar input { background-color: #ffffff; color: #242529; }
+        .send-msg-btn { background-color: #ffffff; color: #00aff0; border: 1px solid #00aff0; }
     </style>
 
-    <!-- Автономний скрипт для миттєвого фарбування чату -->
+    <!-- Автономний скрипт для миттєвого та бездоганного фарбування чату -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const btn = document.getElementById('theme-toggle');
@@ -103,13 +105,20 @@
                 const chatArea = document.querySelector('.chat-messages-area');
                 if (chatArea) chatArea.style.backgroundColor = "#101215";
                 
+                // Перефарбовуємо хмаринки повідомлень моделі та текст всередині них
                 const modelBubbles = document.querySelectorAll('.msg-bubble:not(.user-msg .msg-bubble)');
-                modelBubbles.forEach(b => b.style.backgroundColor = "#16181c");
-                modelBubbles.forEach(b => b.style.color = "#ffffff");
+                modelBubbles.forEach(b => {
+                    b.style.backgroundColor = "#16181c";
+                    b.style.color = "#ffffff";
+                });
+
+                const allTexts = document.querySelectorAll('.text-content');
+                allTexts.forEach(t => t.style.color = "#ffffff");
                 
                 const ppvCaptions = document.querySelectorAll('.ppv-caption');
                 ppvCaptions.forEach(c => c.style.color = "#8c9ba5");
                 
+                // Перефарбовуємо нижню панель введення
                 const chatInputBar = document.querySelector('.chat-input-bar');
                 if (chatInputBar) {
                     chatInputBar.style.backgroundColor = "#16181c";
@@ -121,6 +130,13 @@
                     inputField.style.backgroundColor = "#101215";
                     inputField.style.borderColor = "#2f3336";
                     inputField.style.color = "#ffffff";
+                }
+
+                const sendBtn = document.querySelector('.send-msg-btn');
+                if (sendBtn) {
+                    sendBtn.style.backgroundColor = "#101215";
+                    sendBtn.style.borderColor = "#2f3336";
+                    sendBtn.style.color = "#ffffff";
                 }
 
                 if (btn) btn.textContent = '☀️ Світла тема';
@@ -147,8 +163,13 @@
                 if (chatArea) chatArea.style.backgroundColor = "";
                 
                 const modelBubbles = document.querySelectorAll('.msg-bubble:not(.user-msg .msg-bubble)');
-                modelBubbles.forEach(b => b.style.backgroundColor = "");
-                modelBubbles.forEach(b => b.style.color = "");
+                modelBubbles.forEach(b => {
+                    b.style.backgroundColor = "";
+                    b.style.color = "";
+                });
+
+                const allTexts = document.querySelectorAll('.text-content');
+                allTexts.forEach(t => t.style.color = "");
                 
                 const ppvCaptions = document.querySelectorAll('.ppv-caption');
                 ppvCaptions.forEach(c => c.style.color = "");
@@ -164,6 +185,13 @@
                     inputField.style.backgroundColor = "";
                     inputField.style.borderColor = "";
                     inputField.style.color = "";
+                }
+
+                const sendBtn = document.querySelector('.send-msg-btn');
+                if (sendBtn) {
+                    sendBtn.style.backgroundColor = "";
+                    sendBtn.style.borderColor = "";
+                    sendBtn.style.color = "";
                 }
 
                 if (btn) btn.textContent = '🌙 Темна тема';
@@ -187,5 +215,3 @@
     </script>
 
     <script src="script.js"></script>
-</body>
-</html>
