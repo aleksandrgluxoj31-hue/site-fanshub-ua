@@ -140,3 +140,34 @@ textarea::placeholder, input::placeholder { color: #8c9ba5 !important; }
 .nav-link:active {
     transform: translateY(1px);
 }
+/* ПРИМУСОВЕ ВИДАЛЕННЯ ЧОРНИХ БЛОКІВ ТА ПОВНЕ ПЕРЕВЕДЕННЯ У СВІТЛУ ТЕМУ */
+.load-more-container {
+    background-color: #f4f6f8 !important; /* Робимо фон кнопки світлим, як і весь сайт */
+    padding: 20px 0 !important;
+    margin: 0 !important;
+}
+
+.load-more-btn {
+    background-color: #ffffff !important;
+    border: 1px solid #00aff0 !important;
+    color: #00aff0 !important;
+    padding: 10px 30px !important;
+    font-weight: bold !important;
+    border-radius: 20px !important;
+    cursor: pointer;
+}
+
+.load-more-btn:hover {
+    background-color: rgba(0, 175, 240, 0.05) !important;
+}
+
+/* Прибираємо чорні траурні рамки навколо відео картки */
+.video-container {
+    background-color: #ffffff !important; /* Картка відео стає чисто білою */
+    padding: 0 15px !important;
+}
+
+.open-video {
+    border-radius: 8px !important;
+    border: 1px solid #d8e1e6 !important;
+}
