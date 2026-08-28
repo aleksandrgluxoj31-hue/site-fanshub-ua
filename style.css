@@ -1,198 +1,156 @@
 /* ==========================================================================
-   ГЛОБАЛЬНІ НАЛАШТУВАННЯ СВІТЛОЇ ТЕМИ FANSHUB
+   ГЛОБАЛЬНИЙ ФІКС СВІТЛОЇ ТЕМИ ТА КНОПОК FANSHUB
    ========================================================================== */
 * {
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
-body {
-    background-color: #f7f9fa;
-    color: #333333;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    margin: 0 auto;
-    padding: 0 15px;
-    max-width: 800px; /* Фіксує ширину сайту за стандартом OnlyFans, прибирає пустку справа */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+/* Примусовий світлий фон для всього сайту */
+body, html, :root {
+    background-color: #f7f9fa !important;
+    background-image: none !important;
+    color: #242526 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    margin: 0 auto !important;
+    padding: 0 15px !important;
+    max-width: 850px !important; /* Центрує та фіксує сайт */
+    min-height: 100vh !important;
 }
 
 /* ==========================================================================
-   ВЕРХНЯ НАВІГАЦІЯ (HEADER)
+   ФОРМА АВТОРІЗАЦІЇ ТА КАРТКИ (РЕСТАВРАЦІЯ БЛОКІВ)
    ========================================================================== */
-header, .top-nav, .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #e1e8ed;
-    margin-bottom: 25px;
-    width: 100%;
+/* Робимо ліву та праву панелі білими з красивими рамками */
+div[class*="login"], div[class*="auth"], .card, main, .main-content, div[class*="container"] {
+    background-color: #ffffff !important;
+    color: #242526 !important;
+    border: 1px solid #e1e8ed !important;
+    border-radius: 16px !important;
+    padding: 25px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+    margin-bottom: 20px !important;
 }
 
-/* Кнопка повернення на головну */
-header a, .top-nav a, a[href*="головну"], a[href="/"] {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: #008fec; /* Фірмовий блакитний колір */
-    font-weight: 600;
-    font-size: 15px;
-    transition: color 0.2s ease;
+/* Поля вводу (Email, Пароль) */
+input[type="text"], input[type="email"], input[type="password"], input {
+    width: 100% !important;
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    border: 1px solid #ccd6dd !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+    font-size: 15px !important;
 }
 
-header a:hover, a[href*="головну"]:hover {
-    color: #006baf;
+/* Головна кнопка «УВІЙТИ / ЗАРЕЄСТРУВАТИСЬ» */
+button, input[type="submit"], .btn-primary, [class*="button"] {
+    width: 100% !important;
+    background-color: #008fec !important; /* Фірмовий блакитний колір */
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 25px !important;
+    padding: 14px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    transition: background-color 0.2s !important;
+    display: block !important;
+    margin-top: 10px !important;
 }
 
-/* ПОВНЕ ПРИХОВУВАННЯ ПЕРЕМИКАЧА ТЕМ */
-/* Видаляє з інтерфейсу кнопку темної теми, яка ламала верстку */
-.theme-toggle, 
-a[href*="theme"], 
-[class*="theme"], 
-[id*="theme"] {
+button:hover, .btn-primary:hover {
+    background-color: #006baf !important;
+}
+
+/* Кнопки авторизації через соцмережі (Google, X / Twitter) */
+a[href*="google"], a[href*="twitter"], a[href*="facebook"], [class*="social-btn"] {
+    display: inline-block !important;
+    background-color: #f8f9fa !important;
+    color: #333333 !important;
+    border: 1px solid #ccd6dd !important;
+    border-radius: 20px !important;
+    padding: 10px 20px !important;
+    margin: 5px !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+a[href*="google"]:hover, a[href*="twitter"]:hover {
+    background-color: #edf3f7 !important;
+    border-color: #008fec !important;
+}
+
+/* ==========================================================================
+   ТЕКСТИ ТА ДИЗАЙН СТОРІНКИ
+   ========================================================================== */
+h1, h2, h3, h4, p, span, div {
+    color: #242526 !important; /* Примусово робимо весь текст видимим */
+}
+
+/* Заголовки */
+h1, .title {
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    margin-bottom: 15px !important;
+}
+
+/* Текст підзаголовків */
+p {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    color: #5b7083 !important;
+}
+
+/* Приховуємо перемикач тем, щоб він не ламав верхню панель */
+.theme-toggle, a[href*="theme"], [class*="theme"] {
     display: none !important;
 }
 
-/* ==========================================================================
-   ОСНОВНИЙ КОНТЕНТ (ЧАТ, ВІДЕО ТА АНКЕТИ)
-   ========================================================================== */
-main, .main-content, .chat-box, .chat-container {
-    flex: 1;
-    width: 100%;
-    background-color: #ffffff;
-    border: 1px solid #e1e8ed;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    margin-bottom: 30px;
+/* Посилання в тексті (наприклад, Кабінет моделі) */
+a {
+    color: #008fec !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+a:hover {
+    text-decoration: underline !important;
 }
 
-/* Стилізація медіа-блоків у чаті (відео та фото під замком) */
-video, .video-block, .locked-media {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
-    margin: 15px auto;
-}
-
-/* Адаптивність повідомлень у чаті */
-.message-bubble {
-    max-width: 85%;
-    word-wrap: break-word;
-    margin-bottom: 15px;
-}
-
-/* Сучасна кнопка «Показати ще» */
-.show-more-btn, button:contains("ПОКАЗАТИ"), button:contains("Показати") {
-    display: block;
-    width: 220px;
-    margin: 30px auto;
-    padding: 12px 24px;
-    border: 2px solid #008fec;
-    background: transparent;
-    color: #008fec;
-    border-radius: 25px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.2s ease;
-}
-
-.show-more-btn:hover {
-    background: #008fec;
-    color: #ffffff;
+/* РОЖЕВИЙ БАНЕР СКИДКИ (Знижка 70%) */
+[class*="banner"], div:contains("Знижка"), p:contains("Знижка") {
+    background: linear-gradient(90deg, #ff7b00, #ff007b) !important;
+    color: #ffffff !important;
+    padding: 12px !important;
+    border-radius: 30px !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    margin: 15px 0 !important;
 }
 
 /* ==========================================================================
-   ФУТЕР САЙТУ (NATIVE & CLEAN)
+   ФУТЕР САЙТУ (ОЧИЩЕННЯ ВІД СИНЬОГО СПИСКУ)
    ========================================================================== */
 footer, .footer, .main-footer {
-    width: 100%;
-    border-top: 1px solid #e1e8ed;
-    padding: 35px 0;
-    margin-top: auto;
-    text-align: center;
-    background: transparent;
+    width: 100% !important;
+    border-top: 1px solid #e1e8ed !important;
+    padding: 30px 0 !important;
+    margin-top: 40px !important;
+    text-align: center !important;
 }
 
-/* Текст копірайту ©2026 */
-.footer-copyright, footer p, footer div:first-child {
-    font-size: 14px;
-    color: #8899a6;
-    margin-bottom: 15px;
-}
-
-/* Трансформація синього вертикального списку документів у горизонтальну сітку */
-footer ul, .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px 20px; /* Гарні відступи між документами */
-    margin: 0 0 20px 0;
-    padding: 0;
-    list-style: none;
-}
-
-/* Новий вигляд для лінків документів (DMCA, Terms, Privacy) */
-footer a, 
-.footer a, 
-a[href*="terms"], 
-a[href*="dmca"], 
-a[href*="privacy"], 
-a[href*="help"], 
-a[href*="cookie"] {
-    text-decoration: none !important;
-    color: #5b7083 !important; /* Нейтральний професійний сірий колей */
+footer a, .footer a, a[href*="terms"], a[href*="dmca"], a[href*="privacy"], a[href*="help"] {
+    color: #5b7083 !important; /* Красивий сірий колір замість синього */
     font-size: 14px !important;
-    font-weight: 500 !important;
     display: inline-block !important;
-    transition: color 0.15s ease !important;
+    margin: 5px 12px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
 }
 
-/* Ефект підсвічування при наведенні мишки */
-footer a:hover, .footer a:hover {
-    color: #008fec !important; /* Стають фірмовими синіми */
-}
-
-/* ==========================================================================
-   ЕЛЕМЕНТИ УПРАВЛІННЯ (ВИБІР МОВИ АБО СОЦМЕРЕЖІ)
-   ========================================================================== */
-select, name["lang"], .language-selector select {
-    padding: 6px 12px;
-    border: 1px solid #ccd6dd;
-    border-radius: 6px;
-    color: #5b7083;
-    background-color: #ffffff;
-    font-size: 14px;
-    margin-top: 10px;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.2s ease;
-}
-
-select:focus {
-    border-color: #008fec;
-}
-
-/* Фікс іконок соціальних мереж у футері */
-.footer-socials, [class*="social"] {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.footer-socials img, .footer-socials svg {
-    width: 20px;
-    height: 20px;
-    filter: invert(45%) sepia(10%) saturate(600%) hue-rotate(160deg) brightness(90%) contrast(90%); /* Робить іконки акуратними сірими */
-    transition: filter 0.2s ease;
-}
-
-.footer-socials img:hover {
-    filter: invert(41%) sepia(83%) saturate(3500%) hue-rotate(185deg) brightness(95%) contrast(105%); /* Синій при наведенні */
+footer a:hover {
+    color: #008fec !important;
 }
