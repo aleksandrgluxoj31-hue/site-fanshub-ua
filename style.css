@@ -134,3 +134,20 @@ body.dark-mode .language-selector select { background-color: #16181c !important;
     margin: 0 auto !important;
     width: 100% !important;
 }
+/* ВИПРАВЛЕННЯ ЧИТАБЕЛЬНОСТІ ПОСИЛАНЬ У СВІТЛІЙ ТЕМІ */
+.banner-box p a {
+    color: #00aff0 !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    text-shadow: none !important;
+}
+
+.banner-box p a:hover {
+    color: #008ec2 !important;
+    text-decoration: underline !important;
+}
+
+/* КОЛИ СТАЄ ТЕМНА ТЕМА — ЦІ ПОСИЛАННЯ СТАЮТЬ БІЛИМИ */
+body.dark-mode .banner-box p a {
+    color: #ffffff !important;
+}
