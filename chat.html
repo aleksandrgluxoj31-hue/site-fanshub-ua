@@ -8,11 +8,10 @@
 </head>
 <body>
 
-    <!-- Кнопка теми -->
-    <button id="theme-toggle" style="width: auto; position: absolute; top: 15px; left: 15px; padding: 8px 15px; font-size: 14px; z-index: 100;">🌙 Темна тема</button>
+  
 
     <div class="chat-main-wrapper">
-        <a href="index.html" class="nav-link" style="margin-bottom: 20px; display: inline-block; color: #00aff0; text-decoration: none; font-weight: 500;">← На головну сторінку</a>
+        <a href="index.html" class="nav-link" style="margin-bottom: 40px; display: inline-block; color: #00aff0; text-decoration: none; font-weight: 500;">← На головну сторінку</a>
 
         <!-- ВІКНО ЧАТУ -->
         <div class="chat-window">
@@ -81,137 +80,8 @@
         .send-msg-btn { background-color: #ffffff; color: #00aff0; border: 1px solid #00aff0; }
     </style>
 
-    <!-- Автономний скрипт для миттєвого та бездоганного фарбування чату -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const btn = document.getElementById('theme-toggle');
-            
-            function applyDark() {
-                document.body.classList.add('dark-mode');
-                document.body.style.backgroundColor = "#101215";
-                
-                const chatWindow = document.querySelector('.chat-window');
-                if (chatWindow) chatWindow.style.borderColor = "#2f3336";
-                
-                const chatHeader = document.querySelector('.chat-header-top');
-                if (chatHeader) {
-                    chatHeader.style.backgroundColor = "#16181c";
-                    chatHeader.style.borderBottomColor = "#2f3336";
-                }
-                
-                const chatTitle = document.querySelector('.chat-title');
-                if (chatTitle) chatTitle.style.color = "#ffffff";
-                
-                const chatArea = document.querySelector('.chat-messages-area');
-                if (chatArea) chatArea.style.backgroundColor = "#101215";
-                
-                // Перефарбовуємо хмаринки повідомлень моделі та текст всередині них
-                const modelBubbles = document.querySelectorAll('.msg-bubble:not(.user-msg .msg-bubble)');
-                modelBubbles.forEach(b => {
-                    b.style.backgroundColor = "#16181c";
-                    b.style.color = "#ffffff";
-                });
 
-                const allTexts = document.querySelectorAll('.text-content');
-                allTexts.forEach(t => t.style.color = "#ffffff");
-                
-                const ppvCaptions = document.querySelectorAll('.ppv-caption');
-                ppvCaptions.forEach(c => c.style.color = "#8c9ba5");
-                
-                // Перефарбовуємо нижню панель введення
-                const chatInputBar = document.querySelector('.chat-input-bar');
-                if (chatInputBar) {
-                    chatInputBar.style.backgroundColor = "#16181c";
-                    chatInputBar.style.borderTopColor = "#2f3336";
-                }
-                
-                const inputField = document.querySelector('.chat-input-bar input');
-                if (inputField) {
-                    inputField.style.backgroundColor = "#101215";
-                    inputField.style.borderColor = "#2f3336";
-                    inputField.style.color = "#ffffff";
-                }
-
-                const sendBtn = document.querySelector('.send-msg-btn');
-                if (sendBtn) {
-                    sendBtn.style.backgroundColor = "#101215";
-                    sendBtn.style.borderColor = "#2f3336";
-                    sendBtn.style.color = "#ffffff";
-                }
-
-                if (btn) btn.textContent = '☀️ Світла тема';
-                localStorage.setItem('dark-mode', 'enabled');
-            }
-
-            function applyLight() {
-                document.body.classList.remove('dark-mode');
-                document.body.style.backgroundColor = "";
-                
-                const chatWindow = document.querySelector('.chat-window');
-                if (chatWindow) chatWindow.style.borderColor = "";
-                
-                const chatHeader = document.querySelector('.chat-header-top');
-                if (chatHeader) {
-                    chatHeader.style.backgroundColor = "";
-                    chatHeader.style.borderBottomColor = "";
-                }
-                
-                const chatTitle = document.querySelector('.chat-title');
-                if (chatTitle) chatTitle.style.color = "";
-                
-                const chatArea = document.querySelector('.chat-messages-area');
-                if (chatArea) chatArea.style.backgroundColor = "";
-                
-                const modelBubbles = document.querySelectorAll('.msg-bubble:not(.user-msg .msg-bubble)');
-                modelBubbles.forEach(b => {
-                    b.style.backgroundColor = "";
-                    b.style.color = "";
-                });
-
-                const allTexts = document.querySelectorAll('.text-content');
-                allTexts.forEach(t => t.style.color = "");
-                
-                const ppvCaptions = document.querySelectorAll('.ppv-caption');
-                ppvCaptions.forEach(c => c.style.color = "");
-                
-                const chatInputBar = document.querySelector('.chat-input-bar');
-                if (chatInputBar) {
-                    chatInputBar.style.backgroundColor = "";
-                    chatInputBar.style.borderTopColor = "";
-                }
-                
-                const inputField = document.querySelector('.chat-input-bar input');
-                if (inputField) {
-                    inputField.style.backgroundColor = "";
-                    inputField.style.borderColor = "";
-                    inputField.style.color = "";
-                }
-
-                const sendBtn = document.querySelector('.send-msg-btn');
-                if (sendBtn) {
-                    sendBtn.style.backgroundColor = "";
-                    sendBtn.style.borderColor = "";
-                    sendBtn.style.color = "";
-                }
-
-                if (btn) btn.textContent = '🌙 Темна тема';
-                localStorage.setItem('dark-mode', 'disabled');
-            }
-
-            if (localStorage.getItem('dark-mode') === 'enabled') {
-                applyDark();
-            }
-
-            if (btn) {
-                btn.addEventListener('click', function() {
-                    if (!document.body.classList.contains('dark-mode')) {
-                        applyDark();
-                    } else {
-                        applyLight();
-                    }
-                });
-            }
-        });
+       
     </script>
 
     <script src="script.js"></script>
