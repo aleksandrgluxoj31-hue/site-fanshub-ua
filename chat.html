@@ -8,15 +8,11 @@
 </head>
 <body>
 
-  
+    <div class="chat-main-wrapper" style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+        <!-- Нова помітна кнопка повернення -->
+        <a href="index.html" class="nav-link">← На головну сторінку</a>
 
-    <div class="chat-main-wrapper">
-        <a href="index.html" class="nav-link" style="margin-bottom: 40px; display: inline-block; color: #00aff0; text-decoration: none; font-weight: 500;">← На головну сторінку</a>
-
-        <!-- ВІКНО ЧАТУ -->
         <div class="chat-window">
-            
-            <!-- Шапка чату -->
             <div class="chat-header-top">
                 <img src="images/1.jpg" alt="Катерина" class="chat-avatar">
                 <div class="chat-user-status">
@@ -25,16 +21,12 @@
                 </div>
             </div>
 
-            <!-- Область повідомлень -->
             <div class="chat-messages-area">
-                
-                <!-- Повідомлення від моделі (Текст) -->
                 <div class="msg-row model-msg">
                     <img src="images/1.jpg" alt="Катя" class="msg-avatar">
-                    <div class="msg-bubble text-content">Привіт, солодкий! 🌟 Рада бачити тебе у своєму приватному чаті. Я якраз відпочиваю після зйомок. Хочеш подивитися, що я записала спеціально для тебе?</div>
+                    <div class="msg-bubble text-content">Привіт, солодкий! 🌟 Рада бачити тебе у моєму приватному чаті. Я якраз відпочиваю після зйомок. Хочеш подивитися, що я записала спеціально для тебе?</div>
                 </div>
 
-                <!-- ПЛАТНЕ ПОВІДОМЛЕННЯ (PPV LOCK) -->
                 <div class="msg-row model-msg">
                     <img src="images/1.jpg" alt="Катя" class="msg-avatar">
                     <div class="msg-bubble ppv-bubble">
@@ -50,38 +42,18 @@
                     </div>
                 </div>
 
-                <!-- Повідомлення від користувача (Клієнта) -->
                 <div class="msg-row user-msg">
                     <div class="msg-bubble">Привіт! Вау, звісно хочу подивитися! Оплачую прямо зараз.</div>
                 </div>
-
             </div>
 
-            <!-- Панель введення тексту -->
             <div class="chat-input-bar">
                 <input type="text" placeholder="Напишіть повідомлення для Катерини...">
                 <button class="send-msg-btn" onclick="alert('Для відправки повідомлень необхідно поповнити баланс користувача!')">➔</button>
             </div>
-
         </div>
     </div>
 
-    <!-- Завантажуємо базові світлі кольори для чату -->
-    <style>
-        body { background-color: #f4f6f8; }
-        .chat-window { background-color: #ffffff; border: 1px solid #d8e1e6; }
-        .chat-header-top { border-bottom: 1px solid #d8e1e6; background-color: #ffffff; }
-        .chat-title { color: #242529; }
-        .chat-messages-area { background-color: #f8f9fa; }
-        .msg-bubble:not(.user-msg .msg-bubble) { background-color: #ffffff; color: #242529; }
-        .ppv-caption { color: #555555; }
-        .chat-input-bar { background-color: #ffffff; border-top: 1px solid #d8e1e6; }
-        .chat-input-bar input { background-color: #ffffff; color: #242529; }
-        .send-msg-btn { background-color: #ffffff; color: #00aff0; border: 1px solid #00aff0; }
-    </style>
-
-
-       
-    </script>
-
     <script src="script.js"></script>
+</body>
+</html>

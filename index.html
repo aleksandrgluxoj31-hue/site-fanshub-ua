@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FansHub - Платформа ексклюзивного контенту</title>
+    <title>FansHub - Ексклюзивний контент від найкращих авторів</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Кнопка теми -->
-  
-
-    <!-- ВЕРХНЯ ЧАСТИНА: ГОРИЗОНТАЛЬНИЙ БЛОК (ЗЛІВА РЕЄСТРАЦІЯ, СПРАВА РЕКЛАМА) -->
-    <div class="top-section">
+    <!-- ВЕРХНЯ СЕКЦИЯ: РЕГИСТРАЦИЯ И БАННЕР -->
+    <header class="top-section">
         <div class="top-container">
-            
-            <!-- ЛІВА ЧАСТИНА ВЕРХУ: Зона реєстрації -->
             <div class="auth-box">
                 <div class="brand-logo">FansHub</div>
                 <h3>Зареєструйтесь, щоб підтримати авторів</h3>
-                <form id="auth-form">
+                <form onsubmit="event.preventDefault(); alert('Реєстрація тимчасово обмежена! Спробуйте пізніше.')">
                     <div class="input-group">
                         <input type="email" placeholder="Електронна пошта (Email)" required>
                     </div>
@@ -28,41 +23,35 @@
                     </div>
                     <button type="submit" class="primary-btn">УВІЙТИ / ЗАРЕЄСТРУВАТИСЬ</button>
                 </form>
-
                 <div class="social-login">
-                    <button class="social-btn google-btn" onclick="alert('Вхід через Google')">Google</button>
-                    <button class="social-btn twitter-btn" onclick="alert('Вхід через X')">X (Twitter)</button>
+                    <button class="social-btn">Google</button>
+                    <button class="social-btn">X (Twitter)</button>
                 </div>
             </div>
 
-            <!-- ПРАВА ЧАСТИНА ВЕРХУ: Місце для реклами / Промо-банер -->
             <div class="banner-box">
-                <div class="ad-badge">РЕКЛАМА / ТОП МОДЕЛІ</div>
-                <h1>Отримай доступ до закритих приватів</h1>
+                <span class="ad-badge">РЕКЛАМА / ТОП МОДЕЛІ</span>
+                <h1>Отримай доступ до закритих приватив</h1>
                 <p class="banner-text">Прямо зараз понад 500 контент-мейкерів перебувають у мережі та чекають на твої повідомлення. Оформи підписку та розблокуй VIP-стрічку в один клік.</p>
-                <div class="ad-banner-mock">
-                    <span>🔥 Знижка 70% на першу VIP-підписку сьогодні! 🔥</span>
+                <div class="ad-banner-mock" style="margin-bottom: 20px;">
+                    🔥 Знижка 70% на першу VIP-підписку сьогодні! 🔥
                 </div>
-                <p style="margin-top: 15px;"><a href="chat.html" style="color: white; font-weight: bold; font-size: 14px; text-decoration: underline;">👉 ТЕСТУВАТИ ПРИВАТНИЙ VIP-ЧАТ</a></p>
-                <p style="margin-top: 10px;"><a href="dashboard.html" style="color: white; font-weight: bold; font-size: 14px; text-decoration: underline;">👑 КАБІНЕТ МОДЕЛІ (СТАТИСТИКА ТА ВИПЛАТИ)</a></p>
-
+                <p style="margin-bottom: 10px;">👉 <a href="chat.html">ТЕСТУВАТИ ПРИВАТНИЙ VIP-ЧАТ</a></p>
+                <p>👑 <a href="dashboard.html">КАБІНЕТ МОДЕЛІ (СТАТИСТИКА ТА ВИПЛАТИ)</a></p>
             </div>
-
         </div>
-    </div>
+    </header>
 
-    <!-- НИЖНЯ ЧАСТИНА: КАТАЛОГ АВТОРІВ ТА СТРІЧКА ПОСТІВ -->
-    <div class="bottom-section">
+    <!-- НИЖНЯ СЕКЦИЯ: ЛЕНТА ПОСТОВ -->
+    <main class="bottom-section">
         <h2>Останні рекомендовані повідомлення</h2>
-        
         <div class="feed-container">
             
-            <!-- Пост 1 (Катерина - Фото) -->
-            <div class="post-card">
+            <!-- ПОСТ 1 (Катерина - закритий контент) -->
+            <article class="post-card">
                 <div class="profile-banner-container">
-                    <img src="images/3.jpg" alt="Банер Катерини" class="profile-banner-img">
+                    <img src="images/2.jpg" alt="Обкладинка" class="profile-banner-img">
                 </div>
-
                 <div class="post-content-wrapper">
                     <div class="post-header">
                         <div class="post-header-left">
@@ -72,45 +61,30 @@
                                 <span class="username">@katya_premium</span>
                             </div>
                         </div>
-                        <span class="post-time">28 хвилин тому</span>
+                        <span class="post-time">5 хвилин тому</span>
                     </div>
-                    <p class="post-caption"><a href="#">@katya_premium</a> ексклюзивні кадри з нової дикої фотосесії серед тропічних водоспадів та джунглів! Зареєструйтесь вище, щоб отримати повний доступ. 🌿🔥 <a href="#">://onlyfans.com</a></p>
+                    <p class="post-caption" style="margin-bottom: 15px;">Сьогодні особливий настрій... Записала для вас дуже відверте відео на 10 хвилин. Доступно тільки для моїх VIP-підписників 🙈❤️</p>
                 </div>
-                
                 <div class="media-lock-container">
                     <img src="images/3.jpg" alt="Заблоковано" class="locked-media">
                     <div class="lock-overlay">
                         <span class="lock-icon">🔒</span>
-                        <span class="lock-text">ВХІД / РЕЄСТРАЦІЯ ДЛЯ ПЕРЕГЛЯДУ ФОТО</span>
+                        <div class="lock-text">ПЕРЕГЛЯД ДОСТУПНИЙ ЗА VIP-ПІДПИСКОЮ</div>
+                        <button class="primary-btn" style="width: auto; padding: 10px 30px;" onclick="alert('Для оформлення підписки необхідно прив\'язати банківську картку!')">ОФОРМИТИ VIP ЗА $4.99/міс</button>
                     </div>
                 </div>
-
                 <div class="post-actions-bar">
-                    <div class="action-item like-item" onclick="alert('Лайк поставлено!')">
-                        <span class="action-icon">❤️</span>
-                        <span class="action-count">1.4K</span>
-                    </div>
-                    <div class="action-item comment-item" onclick="alert('Відкриття коментарів')">
-                        <span class="action-icon">💬</span>
-                        <span class="action-count">245</span>
-                    </div>
-                    <div class="action-item star-item" onclick="alert('Додано в обране')">
-                        <span class="action-icon">⭐</span>
-                        <span class="action-text">VIP</span>
-                    </div>
+                    <div class="action-item" onclick="alert('Увійдіть в акаунт, щоб ставити лайки!')">❤️ 1,240</div>
+                    <div class="action-item" onclick="alert('Коментарі доступні тільки підписникам!')">💬 48</div>
                 </div>
-            </div>
+            </article>
 
-            <!-- Пост 2 (Марія - Відео) -->
-            <div class="post-card">
-                <div class="profile-banner-container">
-                    <img src="images/1.jpg" alt="Банер Марії" class="profile-banner-img">
-                </div>
-
+            <!-- ПОСТ 2 (Марія - відкрите відео) -->
+            <article class="post-card">
                 <div class="post-content-wrapper">
                     <div class="post-header">
                         <div class="post-header-left">
-                            <img src="images/2.jpg" alt="Аватар" class="post-mini-avatar">
+                            <div class="post-mini-avatar" style="background-color: #00aff0; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px;">М</div>
                             <div class="post-user-info">
                                 <h4>Марія <span class="verified-badge">✓</span></h4>
                                 <span class="username">@maria_love</span>
@@ -118,76 +92,46 @@
                         </div>
                         <span class="post-time">2 години тому</span>
                     </div>
-                    <p class="post-caption">Мій новий тизер вже у стрічці. Для всіх нових підписників діє знижка 50% на перший місяць! Чекаю на вас у приваті. 💋 <a href="#">://onlyfans.com</a></p>
+                    <p class="post-caption" style="margin-bottom: 15px;">Мій новий тизер вже у стрічці. Для всіх нових підписників діє знижка 50% на перший місяць! Чекаю на вас у приваті. 💋</p>
                 </div>
-                
                 <div class="video-container">
                     <video class="open-video" controls poster="images/2.jpg">
-                        <source src="https://w3schools.com" type="video/mp4">
-                        Ваш браузер не підтримує відео.
+                        <source src="video/1.mp4" type="video/mp4">
+                        Ваш браузер не підтримує відео-плеєр.
                     </video>
                 </div>
-
                 <div class="post-actions-bar">
-                    <div class="action-item like-item" onclick="alert('Лайк поставлено!')">
-                        <span class="action-icon">❤️</span>
-                        <span class="action-count">854</span>
-                    </div>
-                    <div class="action-item comment-item" onclick="alert('Відкриття коментарів')">
-                        <span class="action-icon">💬</span>
-                        <span class="action-count">92</span>
-                    </div>
-                    <div class="action-item star-item" onclick="alert('Додано в обране')">
-                        <span class="action-icon">⭐</span>
-                        <span class="action-text">VIP</span>
-                    </div>
+                    <div class="action-item" onclick="alert('Увійдіть в акаунт!')">❤️ 854</div>
+                    <div class="action-item" onclick="alert('Увійдіть в акаунт!')">💬 92</div>
                 </div>
-            </div>
+            </article>
 
         </div>
-    </div>
 
-    <!-- КНОПКА ПОКАЗАТИ ЩЕ -->
-    <div class="load-more-container">
-        <button class="load-more-btn" onclick="alert('Підвантаження нових постів...')">ПОКАЗАТИ ЩЕ</button>
-    </div>
+        <div class="load-more-container">
+            <button class="load-more-btn" onclick="alert('Завантаження додаткових постів обмежене для гостей. Будь ласка, зареєструйтесь!')">ПОКАЗАТИ ЩЕ</button>
+        </div>
+    </main>
 
-    <!-- ПІДВАЛ (ФУТЕР) -->
+    <!-- СИТЕ ФУТЕР -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-column">
-                <p class="copyright">©2026 FansHub</p>
-                <p><a href="#">Контакти</a></p>
-                <div class="footer-socials">
-                    <a href="#">𝕏</a>
-                    <a href="#">📸</a>
-                </div>
+                <p class="copyright">© 2026 FansHub Inc.</p>
+                <p>Платформа для монетизації авторського контенту.</p>
+            </div>
+            <div class="footer-column">
+                <a href="#">Умови використання</a>
+                <a href="#">Політика конфіденційності</a>
+                <a href="#">Допомога / Підтримка</a>
+            </div>
+            <div class="footer-column">
                 <div class="language-selector">
-                    <select onchange="alert('Зміна мови')">
-                        <option>Ukrainian 🇺🇦</option>
-                        <option>English 🇺🇸</option>
+                    <select>
+                        <option selected>Українська (UA)</option>
+                        <option>English (US)</option>
                     </select>
                 </div>
-            </div>
-            <div class="footer-column">
-                <a href="#">Help</a>
-                <a href="#">Store</a>
-                <a href="#">Cookie Notice</a>
-            </div>
-            <div class="footer-column">
-                <a href="#">About</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">DMCA</a>
-            </div>
-            <div class="footer-column">
-                <a href="#">Blog</a>
-                <a href="#">Privacy</a>
-                <a href="#">Acceptable Use Policy</a>
-            </div>
-            <div class="footer-column">
-                <a href="#">Branding</a>
-                <a href="#">Complaints Policy</a>
-                <a href="#">Contract</a>
             </div>
         </div>
     </footer>
